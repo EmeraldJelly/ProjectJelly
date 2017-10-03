@@ -6,14 +6,16 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 import com.projectkorra.projectkorra.GeneralMethods;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.EarthAbility;
-import com.projectkorra.projectkorra.util.ParticleEffect;
 
 public class Sinkhole extends EarthAbility implements AddonAbility {
-
+/*
+ * Does Not Work Yet. Ignore It being here.
+ */
 	private Location loc;
 	private long cooldown;
 	private long duration;
@@ -46,7 +48,7 @@ public class Sinkhole extends EarthAbility implements AddonAbility {
 
 	@Override
 	public String getName() {
-		return "Bunker";
+		return "Sinkhole";
 	}
 
 	@Override
@@ -60,7 +62,7 @@ public class Sinkhole extends EarthAbility implements AddonAbility {
 	}
 
 	public String getDescription() {
-		return ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "Utility:" + ChatColor.GREEN
+		return ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "Utility: " + ChatColor.GREEN
 				+ "A simple earth ability that sinks target users in a mini sinkhole.";
 	}
 
@@ -78,13 +80,14 @@ public class Sinkhole extends EarthAbility implements AddonAbility {
 			remove();
 			bPlayer.addCooldown(this);
 		}
-		ParticleEffect.FALLING_DUST.display(loc, 0.5f, -0.5f, 0.5f, 1, 50);
 		playEarthbendingSound(loc);
 		for (Entity entity : GeneralMethods.getEntitiesAroundPoint(this.loc, 2.0D)) {
 			if (((entity instanceof LivingEntity)) && (entity.getUniqueId() != this.player.getUniqueId())) {
 				if (EarthAbility.isEarth(entity.getLocation().getBlock())) {
+					EarthAbility.moveEarthBlock(player.getLocation().subtract(0, 1, 0).getBlock(), entity.getLocation().subtract(0, 1, 0).getBlock());;
 					entity.teleport(entity.getLocation().subtract(0, 1, 0));
-					entity.setVelocity(entity.getVelocity().subtract(entity.getVelocity()));
+					Vector vector = entity.getLocation().getDirection().normalize().multiply(0);
+					entity.setVelocity(vector);
 					playEarthbendingSound(loc);
 				}
 				if (getStartTime() - System.currentTimeMillis() >= duration) {
