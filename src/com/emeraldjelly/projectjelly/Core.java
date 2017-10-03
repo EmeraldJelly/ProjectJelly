@@ -8,7 +8,7 @@ import com.emeraldjelly.projectjelly.config.Configuration;
 import com.emeraldjelly.projectjelly.listeners.AbilityListener;
 
 public class Core extends JavaPlugin {
-
+ 
 	public static Core plugin;
 	
 	@Override
