@@ -73,7 +73,7 @@ public class Whirlwind extends AirAbility implements AddonAbility {
 			}
 		} else if (this.isCharged) {
 			ParticleEffect.CLOUD.display(this.player.getLocation().add(0.0D, 0.0D, 0.0D), 0.4F, 0.4F, 0.4F, 0.0F, 75);
-			this.loc = this.player.getLocation();
+		 	this.loc = this.player.getLocation();
 		}
 	}
 

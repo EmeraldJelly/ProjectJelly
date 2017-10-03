@@ -28,7 +28,9 @@ public class Configuration {
 		c.addDefault("ProjectJelly.Air.Whirlwind.Damage", Double.valueOf(5.0D));
 		c.addDefault("ProjectJelly.Air.Whirlwind.KnockBack", Double.valueOf(1.5D));
 		
-		c.addDefault("ProjectJelly.Earth.Bunker.Cooldown", Double.valueOf( 12500D));
+		c.addDefault("ProjectJelly.Earth.Sinkhole.Cooldown", Double.valueOf( 5000D));
+		c.addDefault("ProjectJelly.Earth.Sinkhole.Duration", Double.valueOf( 3500D));
+		c.addDefault("ProjectJelly.Earth.Sinkhole.Range", Integer.valueOf( 25));
 
 		ConfigManager.defaultConfig.save();
 		plugin.saveConfig();

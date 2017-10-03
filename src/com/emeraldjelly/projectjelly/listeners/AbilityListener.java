@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import com.emeraldjelly.projectjelly.ability.earth.Bunker;
+import com.emeraldjelly.projectjelly.ability.earth.Sinkhole;
 import com.emeraldjelly.projectjelly.ability.fire.FireSerpent;
 import com.emeraldjelly.projectjelly.ability.fire.Immolate;
 import com.projectkorra.projectkorra.BendingPlayer;
@@ -28,6 +28,9 @@ public class AbilityListener implements Listener {
 
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Immolate")) {
 			new Immolate(player);
+			
+		}  else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Sinkhole")) {
+			new Sinkhole(player);
 		}
 
 	}
@@ -49,10 +52,7 @@ public class AbilityListener implements Listener {
 			return;
 
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("FireSerpent")) {
-			new FireSerpent(player);
-			
-		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Bunker")) {
-			new Bunker(player);
+			new FireSerpent(player);	
 		}
 
 	}
