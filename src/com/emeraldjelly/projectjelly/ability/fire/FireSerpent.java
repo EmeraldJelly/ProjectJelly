@@ -1,9 +1,9 @@
 package com.emeraldjelly.projectjelly.ability.fire;
 
-import com.emeraldjelly.projectjelly.Core;
 import com.projectkorra.projectkorra.GeneralMethods;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.FireAbility;
+import com.projectkorra.projectkorra.configuration.ConfigManager;
 import com.projectkorra.projectkorra.util.DamageHandler;
 import com.projectkorra.projectkorra.util.ParticleEffect;
 
@@ -27,7 +27,7 @@ public class FireSerpent extends FireAbility implements AddonAbility {
 	private Location start;
 	private int particleAmount;
 	private float BallSize;
-	static FileConfiguration cm = Core.plugin.getConfig();
+	static FileConfiguration cm = ConfigManager.getConfig();
 	private double damage = cm.getDouble("ProjectJelly.Fire.FireSerpent.Damage");
 	private long cooldown = cm.getLong("ProjectJelly.Fire.FireSerpent.Cooldown");
 	private long chargetime = cm.getLong("ProjectJelly.Fire.FireSerpent.ChargeTime");

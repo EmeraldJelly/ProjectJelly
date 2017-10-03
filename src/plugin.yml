@@ -1,5 +1,0 @@
-name: ProjectJelly
-version: ALPHA-1.0.0
-main: com.emeraldjelly.projectjelly.Core
-author: xNuminousx
-depend: [ProjectKorra]
