@@ -36,7 +36,7 @@ public class Core extends AvatarAbility implements AddonAbility {
 		c.addDefault("ProjectJelly.Fire.Immolate.Cooldown", Integer.valueOf(3000));
 		c.addDefault("ProjectJelly.Fire.Immolate.SacrficeDamage", Integer.valueOf(8));
 		c.addDefault("ProjectJelly.Fire.Immolate.FireTicks", Integer.valueOf(5));
-
+ 
 		c.addDefault("ProjectJelly.Air.Whirlwind.Cooldown", Long.valueOf(2500L));
 		c.addDefault("ProjectJelly.Air.Whirlwind.ChargeTime", Long.valueOf(5000L));
 		c.addDefault("ProjectJelly.Air.Whirlwind.Damage", Double.valueOf(5.0D));
@@ -49,6 +49,7 @@ public class Core extends AvatarAbility implements AddonAbility {
 		
 
 		ConfigManager.defaultConfig.save();
+		
 	}
 
 	@Override
