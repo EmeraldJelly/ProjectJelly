@@ -42,9 +42,11 @@ public class Core extends AvatarAbility implements AddonAbility {
 		c.addDefault("ProjectJelly.Air.Whirlwind.Damage", Double.valueOf(5.0D));
 		c.addDefault("ProjectJelly.Air.Whirlwind.KnockBack", Double.valueOf(1.5D));
 		
-		c.addDefault("ProjectJelly.Earth.Sinkhole.Cooldown", Double.valueOf( 5000D));
-		c.addDefault("ProjectJelly.Earth.Sinkhole.Duration", Double.valueOf( 3500D));
-		c.addDefault("ProjectJelly.Earth.Sinkhole.Range", Integer.valueOf( 25));
+		c.addDefault("ProjectJelly.Air.Snare.Duration", Long.valueOf(10000));
+		c.addDefault("ProjectJelly.Air.Snare.Hits", Integer.valueOf(3));
+		c.addDefault("ProjectJelly.Air.Snare.Range", Integer.valueOf(40));
+		c.addDefault("ProjectJelly.Air.Snare.Cooldown", Long.valueOf(2500));
+		
 
 		ConfigManager.defaultConfig.save();
 	}

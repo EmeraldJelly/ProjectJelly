@@ -6,11 +6,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import com.emeraldjelly.projectjelly.ability.earth.Sinkhole;
+import com.emeraldjelly.projectjelly.ability.air.Snare;
 import com.emeraldjelly.projectjelly.ability.fire.FireSerpent;
 import com.emeraldjelly.projectjelly.ability.fire.Immolate;
 import com.projectkorra.projectkorra.BendingPlayer;
 import com.projectkorra.projectkorra.ability.CoreAbility;
+
 
 public class AbilityListener implements Listener {
 
@@ -29,8 +30,8 @@ public class AbilityListener implements Listener {
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Immolate")) {
 			new Immolate(player);
 			
-		}  else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Sinkhole")) {
-			new Sinkhole(player);
+		} else if (CoreAbility.hasAbility(event.getPlayer(), Snare.class)) {
+			Snare.dealDamage();
 		}
 
 	}
@@ -53,6 +54,8 @@ public class AbilityListener implements Listener {
 
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("FireSerpent")) {
 			new FireSerpent(player);	
+		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Snare")) {
+			new Snare(player);
 		}
 
 	}
