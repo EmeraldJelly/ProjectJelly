@@ -73,7 +73,7 @@ public class GeyserRush extends WaterAbility implements AddonAbility {
 		ParticleEffect.WATER_DROP.display(this.location, 0.5F, 0.5F, 0.5F, 0.0F, 5);
 		ParticleEffect.CLOUD.display(this.location, 0.5F, 0.5F, 0.5F, 0, 5
 		playWaterbendingSound(this.location);
-		lcation.getWorld().playSound.ENTITY_CREEPER_HURT, 1, 1);
+		location.getWorld().playSound.ENTITY_CREEPER_HURT, 1, 1);
 		this.tempBlock.setRevertTime(2500L);
 		for (Entity entity : GeneralMethods.getEntitiesAroundPoint(this.location, 2.0D)) {
 			if (((entity instanceof Entity)) && (entity.getEntityId() != this.player.getEntityId())) {
