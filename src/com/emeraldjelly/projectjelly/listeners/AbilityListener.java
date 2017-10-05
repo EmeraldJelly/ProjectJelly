@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import com.emeraldjelly.projectjelly.ability.air.Snare;
 import com.emeraldjelly.projectjelly.ability.fire.FireSerpent;
 import com.emeraldjelly.projectjelly.ability.fire.Immolate;
+import com.emeraldjelly.projectjelly.ability.water.GeyserRush;
 import com.projectkorra.projectkorra.BendingPlayer;
 import com.projectkorra.projectkorra.ability.CoreAbility;
 
@@ -56,6 +57,8 @@ public class AbilityListener implements Listener {
 			new FireSerpent(player);	
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Snare")) {
 			new Snare(player);
+		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("GeyserRush")) {
+			new GeyserRush(player);
 		}
 
 	}

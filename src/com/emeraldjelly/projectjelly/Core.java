@@ -47,6 +47,10 @@ public class Core extends AvatarAbility implements AddonAbility {
 		c.addDefault("ProjectJelly.Air.Snare.Range", Integer.valueOf(40));
 		c.addDefault("ProjectJelly.Air.Snare.Cooldown", Long.valueOf(2500));
 		
+	    c.addDefault("ProjectJelly.Water.GeyserRush.Cooldown", Integer.valueOf(5500));
+	    c.addDefault("ProjectJelly.Water.GeyserRush.Range", Integer.valueOf(50));
+	    c.addDefault("ProjectJelly.Water.GeyserRush.Damage", Integer.valueOf(4));
+		
 
 		ConfigManager.defaultConfig.save();
 		
