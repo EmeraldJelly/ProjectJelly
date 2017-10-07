@@ -130,7 +130,7 @@ public class Whip extends WaterAbility implements AddonAbility {
 
 	@Override
 	public String getVersion() {
-		return "v1.0";
+		return JellyMethod.getVersion();
 	}
 
 	@Override
