@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import com.projectkorra.projectkorra.GeneralMethods;
-import com.projectkorra.projectkorra.ProjectKorra;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.WaterAbility;
 import com.projectkorra.projectkorra.configuration.ConfigManager;
