@@ -35,7 +35,7 @@ public class JellyMethods {
 		return "ProjectJelly.Air." + ability + "." + path;
 	}
 	
-	public static String chi(String ability, String path) {
+	public static String chiPath(String ability, String path) {
 		return "ProjectJelly.Chi." + ability + "." + path;
 	}
 
