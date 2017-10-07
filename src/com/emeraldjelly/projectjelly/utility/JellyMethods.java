@@ -15,5 +15,9 @@ public class JellyMethods {
 		return ProjectKorra.plugin.getServer().getVersion().toLowerCase().contains("spigot");
 	}
 	
+	public static String getVersion() {
+		return "v1.0.0";
+	}
+	
 
 }
