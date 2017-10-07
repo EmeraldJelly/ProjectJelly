@@ -34,6 +34,8 @@ public class AbilityListener implements Listener {
 			
 		} else if (CoreAbility.hasAbility(event.getPlayer(), Snare.class)) {
 			Snare.dealDamage();
+		}  else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Whip")) {
+			new Whip(player);
 		}
 
 	}
@@ -60,8 +62,6 @@ public class AbilityListener implements Listener {
 			new Snare(player);
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("GeyserRush")) {
 			new GeyserRush(player);
-		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Whip")) {
-			new Whip(player);
 		}
 
 	}
