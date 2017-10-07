@@ -43,6 +43,10 @@ public class Scorch extends FireAbility implements AddonAbility {
 				"\r\n" + 
 				"Power Level 3: A overwhelmingly powerful charge level. This does not enable the firebender to fire a \"Blast\" however this does make it so the fire bender can move at incredibly fast moving speeds. While in this move the firebender damages Everything within a 3 block radius of them. The firebender may also FLY (using thrust from fire) during this mode but be warned, not only does this take 10 seconds to charge but it also puts a huge strain on the firebender not allowing them to bend for 10 seconds after using this ability.");
 	}
+	
+	public String getInstructions() {
+		return "Left click to use power level 1, Hold Shift to continue charging to different power levels.";
+	}
 
 	@Override
 	public boolean isHarmlessAbility() {
