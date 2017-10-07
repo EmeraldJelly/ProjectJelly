@@ -157,7 +157,7 @@ public class Sprout extends PlantAbility implements AddonAbility {
 
 	@Override
 	public String getVersion() {
-		return "v1.0";
+		return JellyMethods.getVersion();
 	}
 
 	@Override
