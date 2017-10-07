@@ -6,47 +6,47 @@ import org.bukkit.entity.Player;
 import com.emeraldjelly.projectjelly.utility.JellyMethods;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.FireAbility;
+import com.projectkorra.projectkorra.configuration.ConfigManager;
 
 public class Scorch extends FireAbility implements AddonAbility {
+	
+	private long cooldown;
 
 	public Scorch(Player player) {
 		super(player);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public void setFields() {
+		this.cooldown = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown"));
 	}
 
 	@Override
 	public long getCooldown() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public Location getLocation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Scorch";
 	}
 
 	@Override
 	public boolean isHarmlessAbility() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isSneakAbility() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void progress() {
-		// TODO Auto-generated method stub
 
 	}
 
