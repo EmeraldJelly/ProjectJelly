@@ -20,7 +20,7 @@ public class JellyMethods {
 	public static String getVersion() {
 		return "a1.0.0";
 	}
-	
+	 
 	public static String firePath(String ability, String path) {
 		return "ProjectJelly.Fire." + ability + "." + path;
 	}
