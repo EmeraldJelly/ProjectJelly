@@ -1,23 +1,64 @@
 package com.emeraldjelly.projectjelly.ability.fire;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 import com.emeraldjelly.projectjelly.utility.JellyMethods;
+import com.projectkorra.projectkorra.GeneralMethods;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.FireAbility;
 import com.projectkorra.projectkorra.configuration.ConfigManager;
+import com.projectkorra.projectkorra.util.DamageHandler;
+import com.projectkorra.projectkorra.util.ParticleEffect;
 
 public class Scorch extends FireAbility implements AddonAbility {
-	
+
 	private long cooldown;
+	private long cooldown1;
+	private long cooldown2;
+	private long cooldown3;
+	private boolean ch1;
+	private boolean ch2;
+	private Location loc;
+	private int duration;
+	private long chT1;
+	private long chT2;
+	private int d1;
+	private int d2;
+	private int d3;
+	private int r1;
+	private int r2;
+	private int currPoint;
 
 	public Scorch(Player player) {
 		super(player);
+
+		start();
+		setFields();
 	}
-	
+
 	public void setFields() {
-		this.cooldown = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown"));
+		this.cooldown1 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown1"));
+		this.cooldown2 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown2"));
+		this.cooldown3 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown3"));
+		this.d1 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage1"));
+		this.d2 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage2"));
+		this.d3 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage3"));
+		this.r1 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Range1"));
+		this.r2 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Range2"));
+		this.chT1 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "PowerLevel2ChargeTime"));
+		this.chT2 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "PowerLevel3ChargeTime"));
+		this.duration = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "DurationInSeconds"));
+		this.loc = player.getLocation();
+		ch1 = false;
+		ch2 = false;
+
 	}
 
 	@Override
@@ -27,25 +68,26 @@ public class Scorch extends FireAbility implements AddonAbility {
 
 	@Override
 	public Location getLocation() {
-		return null;
+		return loc;
 	}
 
 	@Override
 	public String getName() {
 		return "Scorch";
-	} 
-	
-	public String getDescription() {
-		return JellyMethods.fireDesc("Offensive/Utility", "A charge up advanced firebending move. This move allows the firebender to charge up to 3 different power levels.\r\n" + 
-				"\r\n" + 
-				"Power Level 1: The Weakest charge level. Can only deal a average fireblast to an enemy. (Just a simple Click doesnt require any charging by shifting)\r\n" + 
-				"Power Level 2: A strong charge level, however not the strongest. This allows the fire bender to create a small but concentrated blast that does pretty significant damage. (Requires a 5 Second Charge)\r\n" + 
-				"\r\n" + 
-				"Power Level 3: A overwhelmingly powerful charge level. This does not enable the firebender to fire a \"Blast\" however this does make it so the fire bender can move at incredibly fast moving speeds. While in this move the firebender damages Everything within a 3 block radius of them. The firebender may also FLY (using thrust from fire) during this mode but be warned, not only does this take 10 seconds to charge but it also puts a huge strain on the firebender not allowing them to bend for 10 seconds after using this ability.");
 	}
-	
+
+	public String getDescription() {
+		return JellyMethods.fireDesc("Offensive/Utility",
+				"A charge up advanced firebending move. This move allows the firebender to charge up to 3 different power levels.\r\n"
+						+ "\r\n"
+						+ "Power Level 1: The Weakest charge level. Can only deal a average fireblast to an enemy.\r\n"
+						+ "Power Level 2: A strong charge level, however not the strongest. This allows the fire bender to create a small but concentrated blast that does pretty significant damage. (Requires a 5 Second Charge)\r\n"
+						+ "\r\n"
+						+ "Power Level 3: A overwhelmingly powerful charge level. This does not enable the firebender to fire a \"Blast\" however this does make it so the fire bender can move at incredibly fast moving speeds. While in this move the firebender damages Everything within a 3 block radius of them. The firebender may also FLY (using thrust from fire) during this mode but be warned, it also puts a huge strain on the firebender not allowing them to bend for 10 seconds after using this ability.");
+	}
+
 	public String getInstructions() {
-		return "Left click to use power level 1, Hold Shift to continue charging to different power levels."; 
+		return "Tap Shift to use power level 1, Hold Shift to continue charging to different power levels.";
 	}
 
 	@Override
@@ -55,17 +97,105 @@ public class Scorch extends FireAbility implements AddonAbility {
 
 	@Override
 	public boolean isSneakAbility() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public void progress() {
-
+		if (bPlayer.canBend(this)) {
+			remove();
+			return;
+		}
+		if (player.isSneaking()) {
+			if (System.currentTimeMillis() - getStartTime() > chT1) {
+				ch1 = true;
+				chargeRingOne(40, 0.75F, 2);
+				if (ch1) {
+					loc.add(player.getLocation().getDirection().multiply(1));
+					ParticleEffect.FLAME.display(loc, 0.6F, 0.6F, 0.6F, 0, 40);
+					for (Entity entity : GeneralMethods.getEntitiesAroundPoint(player.getLocation(), 3)) {
+						if (entity instanceof LivingEntity && entity.getEntityId() != player.getEntityId()) {
+							DamageHandler.damageEntity(entity, d2, this);
+						}
+					}
+				}
+				if (System.currentTimeMillis() - getStartTime() > chT2) {
+					ch1 = false;
+					ch2 = true;
+					chargeRingTwo(40, 1F, 2);
+					chargeRingOne(40, 1.75F, 2);
+					if (ch2) {
+						if (!player.isSneaking()) {
+							player.setAllowFlight(true);
+							player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration * 100, 3));
+							for (Entity entity : GeneralMethods.getEntitiesAroundPoint(player.getLocation(), 3)) {
+								if (entity instanceof LivingEntity && entity.getEntityId() != player.getEntityId()) {
+									DamageHandler.damageEntity(entity, d3, this);
+									entity.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(GeneralMethods
+											.getDirection(player.getLocation(), entity.getLocation()).multiply(2)));
+								}
+							}
+							if (System.currentTimeMillis() - getStartTime() > duration) {
+								remove();
+								this.cooldown = cooldown3;
+								player.setAllowFlight(false);
+								bPlayer.addCooldown(this);
+								return;
+							}
+						}
+					}
+				} else if (!player.isSneaking()) {
+					loc.add(player.getLocation().getDirection().multiply(1));
+					ParticleEffect.FLAME.display(loc, 0.5F, 0.5F, 0.5F, 0, 20);
+					for (Entity entity : GeneralMethods.getEntitiesAroundPoint(player.getLocation(), 3)) {
+						if (entity instanceof LivingEntity && entity.getEntityId() != player.getEntityId()) {
+							DamageHandler.damageEntity(entity, d1, this);
+						}
+					}
+					remove();
+					this.cooldown = cooldown1;
+					bPlayer.addCooldown(this);
+					return;
+				}
+			}
+		}
+		if (player.getLocation().distanceSquared(loc) > r1) {
+			remove();
+			return;
+		}
 	}
 
 	@Override
 	public String getAuthor() {
 		return null;
+	}
+
+	private void chargeRingOne(int points, float size, int speed) {
+		for (int i = 0; i < speed; i++) {
+			this.currPoint += 360 / points;
+			if (this.currPoint > 360) {
+				this.currPoint = 0;
+			}
+			double angle = this.currPoint * Math.PI / 180.0D;
+			double x = size * Math.cos(angle);
+			double z = size * Math.sin(angle);
+			Location pLoc = player.getLocation().add(x, 1.0D, z);
+			ParticleEffect.SMOKE.display(pLoc, 0F, 0F, 0F, 0, 30);
+		}
+	}
+
+	private void chargeRingTwo(int points, float size, int speed) {
+		for (int i = 0; i < speed; i++) {
+			this.currPoint += 360 / points;
+			if (this.currPoint > 360) {
+				this.currPoint = 0;
+			}
+			double angle = this.currPoint * Math.PI / 180.0D;
+			double x = size * Math.sin(angle);
+			double z = size * Math.cos(angle);
+			Location pLoc = player.getLocation().add(x, 1.0D, z);
+			ParticleEffect.FLAME.display(pLoc, 0F, 0F, 0F, 0, 30);
+		}
 	}
 
 	@Override
@@ -75,12 +205,12 @@ public class Scorch extends FireAbility implements AddonAbility {
 
 	@Override
 	public void load() {
-		
+
 	}
 
 	@Override
 	public void stop() {
-		
+
 	}
 
 }
