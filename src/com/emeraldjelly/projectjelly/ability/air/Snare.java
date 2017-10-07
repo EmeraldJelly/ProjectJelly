@@ -58,7 +58,7 @@ public class Snare extends AirAbility implements AddonAbility {
 	}
 
 	public String getInstructions() {
-		return "Hold shift to stop enemy in their tracks. Left Click to Deal Damage, ";
+		return "Hold shift to stop enemy in their tracks. Left Click to Deal Damage.";
 	}
 
 	public String getDescription() {
