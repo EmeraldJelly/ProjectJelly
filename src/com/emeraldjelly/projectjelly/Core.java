@@ -10,6 +10,7 @@ import com.projectkorra.projectkorra.ability.AvatarAbility;
 import com.projectkorra.projectkorra.configuration.ConfigManager;
 
 import com.emeraldjelly.projectjelly.listeners.AbilityListener;
+import com.emeraldjelly.projectjelly.utility.JellyMethods;
 
 public class Core extends AvatarAbility implements AddonAbility {
 
@@ -50,6 +51,18 @@ public class Core extends AvatarAbility implements AddonAbility {
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Cooldown", Integer.valueOf(5500));
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Range", Integer.valueOf(50));
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Damage", Integer.valueOf(4));
+	    
+		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown1"), 2500);
+		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown2"), 5000);
+		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown3"), 15000);
+		c.addDefault(JellyMethods.firePath("Scorch", "Damage1"), 4);
+		c.addDefault(JellyMethods.firePath("Scorch", "Damage2"), 7);
+		c.addDefault(JellyMethods.firePath("Scorch", "Damage3"), 7);
+		c.addDefault(JellyMethods.firePath("Scorch", "Range1"), 25);
+		c.addDefault(JellyMethods.firePath("Scorch", "Range2"), 50);
+		c.addDefault(JellyMethods.firePath("Scorch", "PowerLevel2ChargeTime"), 5000);
+		c.addDefault(JellyMethods.firePath("Scorch", "PowerLevel3ChargeTime"), 10000);
+		c.addDefault(JellyMethods.firePath("Scorch", "DurationInSeconds"), 10);
 		
 
 		ConfigManager.defaultConfig.save();

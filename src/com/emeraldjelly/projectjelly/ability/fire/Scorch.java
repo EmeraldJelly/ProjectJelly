@@ -1,7 +1,6 @@
 package com.emeraldjelly.projectjelly.ability.fire;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -111,12 +110,30 @@ public class Scorch extends FireAbility implements AddonAbility {
 				ch1 = true;
 				chargeRingOne(40, 0.75F, 2);
 				if (ch1) {
-					loc.add(player.getLocation().getDirection().multiply(1));
-					ParticleEffect.FLAME.display(loc, 0.6F, 0.6F, 0.6F, 0, 40);
-					for (Entity entity : GeneralMethods.getEntitiesAroundPoint(player.getLocation(), 3)) {
-						if (entity instanceof LivingEntity && entity.getEntityId() != player.getEntityId()) {
-							DamageHandler.damageEntity(entity, d2, this);
+					if (!player.isSneaking()) {
+						loc.add(player.getLocation().getDirection().multiply(1));
+						ParticleEffect.FLAME.display(loc, 0.6F, 0.6F, 0.6F, 0, 40);
+						for (Entity entity : GeneralMethods.getEntitiesAroundPoint(player.getLocation(), 3)) {
+							if (entity instanceof LivingEntity && entity.getEntityId() != player.getEntityId()) {
+								DamageHandler.damageEntity(entity, d2, this);
+							}
 						}
+						if (GeneralMethods.isSolid(loc.getBlock())) {
+							remove();
+							this.cooldown = cooldown2;
+							bPlayer.addCooldown(this);
+							return;
+						}
+						if (player.getLocation().distanceSquared(loc) > r2) {
+							remove();
+							this.cooldown = cooldown2;
+							bPlayer.addCooldown(this);
+							return;
+						}
+						remove();
+						this.cooldown = cooldown2;
+						bPlayer.addCooldown(this);
+						return;
 					}
 				}
 				if (System.currentTimeMillis() - getStartTime() > chT2) {
@@ -152,22 +169,30 @@ public class Scorch extends FireAbility implements AddonAbility {
 							DamageHandler.damageEntity(entity, d1, this);
 						}
 					}
+					if (GeneralMethods.isSolid(loc.getBlock())) {
+						remove();
+						this.cooldown = cooldown2;
+						bPlayer.addCooldown(this);
+						return;
+					}
+					if (player.getLocation().distanceSquared(loc) > r1) {
+						remove();
+						this.cooldown = cooldown1;
+						bPlayer.addCooldown(this);
+						return;
+					}
 					remove();
-					this.cooldown = cooldown1;
+					this.cooldown = cooldown2;
 					bPlayer.addCooldown(this);
 					return;
 				}
 			}
 		}
-		if (player.getLocation().distanceSquared(loc) > r1) {
-			remove();
-			return;
-		}
 	}
 
 	@Override
 	public String getAuthor() {
-		return null;
+		return "EmeraldJelly";
 	}
 
 	private void chargeRingOne(int points, float size, int speed) {
