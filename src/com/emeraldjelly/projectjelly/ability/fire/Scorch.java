@@ -22,7 +22,7 @@ public class Scorch extends FireAbility implements AddonAbility {
 
 	@Override
 	public long getCooldown() {
-		return 0;
+		return cooldown;
 	}
 
 	@Override
