@@ -1,4 +1,4 @@
-package com.NickC1211.korra.GeyserRush;
+package com.emeraldjelly.projectjelly.ability.water;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -50,12 +50,12 @@ public class GeyserRush extends WaterAbility implements AddonAbility {
 
 	@Override
 	public void progress() {
-		if (!player.isSneaking()){
-			TempBlock.startReversion();;
+		if (bPlayer.canBendIgnoreCooldowns(this)) {
 			remove();
 			return;
 		}
-		if (!bPlayer.canBendIgnoreCooldowns(this)){
+		if (!player.isSneaking()){
+			TempBlock.startReversion();;
 			remove();
 			return;
 		}

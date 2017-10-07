@@ -1,4 +1,4 @@
-package com.NickC1211.korra.Whip;
+package com.emeraldjelly.projectjelly.ability.water;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
