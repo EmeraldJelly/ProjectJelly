@@ -34,6 +34,10 @@ public class Scorch extends FireAbility implements AddonAbility {
 	public String getName() {
 		return "Scorch";
 	}
+	
+	public String getDescription() {
+		JellyMethods.fireDesc("Offensive/Utility", "");
+	}
 
 	@Override
 	public boolean isHarmlessAbility() {

@@ -42,7 +42,7 @@ public class JellyMethods {
 	}
 	
 	public static String fireDesc(String type, String desc) {
-		return ChatColor.BOLD + "" + ChatColor.DARK_RED + type + " " + ChatColor.RED + desc;
+		return ChatColor.BOLD + "" + ChatColor.DARK_RED + type + ": " + ChatColor.RED + desc;
 	}
 	
 	public static String fireDescForbidden(String desc) {
@@ -50,7 +50,7 @@ public class JellyMethods {
 	}
 	
 	public static String waterDesc(String type, String desc) {
-		return ChatColor.BOLD + "" + ChatColor.DARK_AQUA + type + " " + ChatColor.AQUA + desc;
+		return ChatColor.BOLD + "" + ChatColor.DARK_AQUA + type + ": " + ChatColor.AQUA + desc;
 	}
 	
 	public static String waterDescForbidden(String desc) {
@@ -58,7 +58,7 @@ public class JellyMethods {
 	}
 	
 	public static String earthDesc(String type, String desc) {
-		return ChatColor.BOLD + "" + ChatColor.DARK_GREEN + type + " " + ChatColor.GREEN + desc;
+		return ChatColor.BOLD + "" + ChatColor.DARK_GREEN + type + ": " + ChatColor.GREEN + desc;
 	}
 	
 	public static String earthDescForbidden(String desc) {
@@ -66,7 +66,7 @@ public class JellyMethods {
 	}
 	
 	public static String airDesc(String type, String desc) {
-		return ChatColor.BOLD + "" + ChatColor.DARK_GRAY + type + " " + ChatColor.GRAY + desc;
+		return ChatColor.BOLD + "" + ChatColor.DARK_GRAY + type + ": " + ChatColor.GRAY + desc;
 	}
 	
 	public static String airDescForbidden(String desc) {
@@ -74,7 +74,7 @@ public class JellyMethods {
 	}
 	
 	public static String chiDesc(String type, String desc) {
-		return ChatColor.BOLD + "" + ChatColor.GOLD + type + " " + ChatColor.YELLOW + desc;
+		return ChatColor.BOLD + "" + ChatColor.GOLD + type + ": " + ChatColor.YELLOW + desc;
 	}
 	
 	public static String chiDescForbidden(String desc) {
