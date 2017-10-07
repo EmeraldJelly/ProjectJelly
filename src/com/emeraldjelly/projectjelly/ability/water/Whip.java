@@ -6,6 +6,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import com.emeraldjelly.projectjelly.utility.JellyMethods;
 import com.projectkorra.projectkorra.GeneralMethods;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.WaterAbility;
@@ -105,7 +106,7 @@ public class Whip extends WaterAbility implements AddonAbility {
 	
 	@Override
 	public String getDescription() {
-		return JellyMethods.waterDesc("Utility", "Send a whip of water at your opponent. You must have a bottle to use this ability.";
+		return JellyMethods.waterDesc("Utility", "Send a whip of water at your opponent. You must have a bottle to use this ability.");
 	}
 	
 	@Override
@@ -130,7 +131,7 @@ public class Whip extends WaterAbility implements AddonAbility {
 
 	@Override
 	public String getVersion() {
-		return JellyMethod.getVersion();
+		return JellyMethods.getVersion();
 	}
 
 	@Override
