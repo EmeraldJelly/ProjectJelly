@@ -33,7 +33,7 @@ public class Scorch extends FireAbility implements AddonAbility {
 	@Override
 	public String getName() {
 		return "Scorch";
-	}
+	} 
 	
 	public String getDescription() {
 		return JellyMethods.fireDesc("Offensive/Utility", "A charge up advanced firebending move. This move allows the firebender to charge up to 3 different power levels.\r\n" + 
