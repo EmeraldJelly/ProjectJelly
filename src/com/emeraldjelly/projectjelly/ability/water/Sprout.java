@@ -133,7 +133,7 @@ public class Sprout extends PlantAbility implements AddonAbility {
 	
 	@Override
 	public String getDescription() {
-		return JellyMethods.waterDesc()"Utility", "This ability allows skilled plantbenders to bring up the roots underground and shoot them at their opponent. This moves requires that you be standing on fertile ground (grass blocks). ");
+		return JellyMethods.waterDesc("Utility", "This ability allows skilled plantbenders to bring up the roots underground and shoot them at their opponent. This moves requires that you be standing on fertile ground (grass blocks). ");
 	}
 	
 	@Override
