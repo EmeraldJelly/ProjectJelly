@@ -45,7 +45,7 @@ public class Scorch extends FireAbility implements AddonAbility {
 	}
 	
 	public String getInstructions() {
-		return "Left click to use power level 1, Hold Shift to continue charging to different power levels.";
+		return "Left click to use power level 1, Hold Shift to continue charging to different power levels."; 
 	}
 
 	@Override
