@@ -52,17 +52,17 @@ public class Core extends AvatarAbility implements AddonAbility {
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Range", Integer.valueOf(50));
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Damage", Integer.valueOf(4));
 	    
-		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown1"), 2500);
-		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown2"), 5000);
-		c.addDefault(JellyMethods.firePath("Scorch", "Cooldown3"), 15000);
-		c.addDefault(JellyMethods.firePath("Scorch", "Damage1"), 4);
-		c.addDefault(JellyMethods.firePath("Scorch", "Damage2"), 7);
-		c.addDefault(JellyMethods.firePath("Scorch", "Damage3"), 7);
-		c.addDefault(JellyMethods.firePath("Scorch", "Range1"), 25);
-		c.addDefault(JellyMethods.firePath("Scorch", "Range2"), 50);
-		c.addDefault(JellyMethods.firePath("Scorch", "PowerLevel2ChargeTime"), 5000);
-		c.addDefault(JellyMethods.firePath("Scorch", "PowerLevel3ChargeTime"), 10000);
-		c.addDefault(JellyMethods.firePath("Scorch", "DurationInSeconds"), 10);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown1"), 2500);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown2"), 5000);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown3"), 15000);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Damage1"), 4);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Damage2"), 7);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Damage3"), 7);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Range1"), 25);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Range2"), 50);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "PowerLevel2ChargeTime"), 5000);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "PowerLevel3ChargeTime"), 10000);
+	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "DurationInSeconds"), 10);
 		
 
 		ConfigManager.defaultConfig.save();

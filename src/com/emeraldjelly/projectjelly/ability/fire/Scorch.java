@@ -43,17 +43,17 @@ public class Scorch extends FireAbility implements AddonAbility {
 	}
 
 	public void setFields() {
-		this.cooldown1 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown1"));
-		this.cooldown2 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown2"));
-		this.cooldown3 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "Cooldown3"));
-		this.d1 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage1"));
-		this.d2 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage2"));
-		this.d3 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Damage3"));
-		this.r1 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Range1"));
-		this.r2 = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "Range2"));
-		this.chT1 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "PowerLevel2ChargeTime"));
-		this.chT2 = ConfigManager.getConfig().getLong(JellyMethods.firePath("Scorch", "PowerLevel3ChargeTime"));
-		this.duration = ConfigManager.getConfig().getInt(JellyMethods.firePath("Scorch", "DurationInSeconds"));
+		this.cooldown1 = ConfigManager.getConfig().getLong(JellyMethods.configPath("fire", "Scorch", "Cooldown1"));
+		this.cooldown2 = ConfigManager.getConfig().getLong(JellyMethods.configPath("fire", "Scorch", "Cooldown2"));
+		this.cooldown3 = ConfigManager.getConfig().getLong(JellyMethods.configPath("fire", "Scorch", "Cooldown2"));
+		this.d1 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "Damage1"));
+		this.d2 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "Damage2"));
+		this.d3 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "Damage3"));
+		this.r1 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "Range1"));
+		this.r2 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "Range2"));
+		this.chT1 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "PowerLevel2ChargeTime"));
+		this.chT2 = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "PowerLevel3ChargeTime"));
+		this.duration = ConfigManager.getConfig().getInt(JellyMethods.configPath("fire", "Scorch", "DurationInSeconds"));
 		this.loc = player.getLocation();
 		ch1 = false;
 		ch2 = false;
@@ -76,13 +76,17 @@ public class Scorch extends FireAbility implements AddonAbility {
 	}
 
 	public String getDescription() {
-		return JellyMethods.fireDesc("Offensive/Utility",
-				"A charge up advanced firebending move. This move allows the firebender to charge up to 3 different power levels.\r\n"
-						+ "\r\n"
-						+ "Power Level 1: The Weakest charge level. Can only deal a average fireblast to an enemy.\r\n"
-						+ "Power Level 2: A strong charge level, however not the strongest. This allows the fire bender to create a small but concentrated blast that does pretty significant damage. (Requires a 5 Second Charge)\r\n"
-						+ "\r\n"
-						+ "Power Level 3: A overwhelmingly powerful charge level. This does not enable the firebender to fire a \"Blast\" however this does make it so the fire bender can move at incredibly fast moving speeds. While in this move the firebender damages Everything within a 3 block radius of them. The firebender may also FLY (using thrust from fire) during this mode but be warned, it also puts a huge strain on the firebender not allowing them to bend for 10 seconds after using this ability.");
+		return JellyMethods.abilityDescription(false, "Offensive/Utility", "fire", "A charge up advanced firebending move. This move allows the firebender to charge up to 3 different power levels.\r\n"
+				+ "\r\n"
+				+ "Power Level 1: The Weakest charge level. Can only deal a average fireblast to an enemy.\r\n"
+				+ "Power Level 2: A strong charge level, however not the strongest. This allows the fire bender"
+				+ " to create a small but concentrated blast that does pretty significant damage. (Requires a 5 Second Charge)\r\n"
+				+ "\r\n"
+				+ "Power Level 3: A overwhelmingly powerful charge level. This does not enable the firebender to fire a "
+				+ "\"Blast\" however this does make it so the fire bender can move at incredibly fast moving speeds. "
+				+ "While in this move the firebender damages Everything within a 3 block radius of them. The firebender"
+				+ " may also FLY (using thrust from fire) during this mode but be warned, it also puts a huge strain on "
+				+ "the firebender not allowing them to bend for 10 seconds after using this ability.");
 	}
 
 	public String getInstructions() {
