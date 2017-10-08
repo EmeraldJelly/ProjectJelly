@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
 import com.emeraldjelly.projectjelly.ability.air.Snare;
+import com.emeraldjelly.projectjelly.ability.air.Whirlwind;
 import com.emeraldjelly.projectjelly.ability.fire.FireSerpent;
 import com.emeraldjelly.projectjelly.ability.fire.Immolate;
 import com.emeraldjelly.projectjelly.ability.fire.Scorch;
@@ -65,6 +66,8 @@ public class AbilityListener implements Listener {
 			new GeyserRush(player);
 		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("Scorch")) {
 			new Scorch(player);
+		} else if (bPlayer.getBoundAbilityName().equalsIgnoreCase("whirlwind")) {
+			new Whirlwind(player);
 		}
 
 	}

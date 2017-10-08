@@ -52,6 +52,10 @@ public class Core extends AvatarAbility implements AddonAbility {
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Range", Integer.valueOf(50));
 	    c.addDefault("ProjectJelly.Water.GeyserRush.Damage", Integer.valueOf(4));
 	    
+	    c.addDefault(JellyMethods.configPath("water", "Whip", "Cooldown"), 1000);
+	    c.addDefault(JellyMethods.configPath("water", "Whip", "Range"), 15);
+	    c.addDefault(JellyMethods.configPath("water", "Whip", "Damage"), 2);
+	    
 	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown1"), 2500);
 	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown2"), 5000);
 	    c.addDefault(JellyMethods.configPath("fire", "Scorch", "Cooldown3"), 15000);
