@@ -106,7 +106,8 @@ public class Whip extends WaterAbility implements AddonAbility {
 	
 	@Override
 	public String getDescription() {
-		return JellyMethods.waterDesc("Utility", "Send a whip of water at your opponent. You must have a bottle to use this ability.");
+		return JellyMethods.abilityDescription(false, "Utility", "water", "Send a whip of water at your opponent. "
+				+ "You must have a bottle to use this ability.");
 	}
 	
 	@Override
