@@ -45,9 +45,9 @@ public class Whip extends WaterAbility implements AddonAbility {
 	}
 	
 	public void setFields(){
-		this.cooldown = ConfigManager.getConfig().getLong("ExtraAbilities.NickC1211.Whip.Cooldown");
-		this.range = ConfigManager.getConfig().getDouble("ExtraAbilities.NickC1211.Whip.Range");
-		this.damage = ConfigManager.getConfig().getDouble("ExtraAbilities.NickC1211.Whip.Damage");
+		this.cooldown = ConfigManager.getConfig().getLong(JellyMethods.configPath("water", "Whip", "Cooldown"));
+		this.range = ConfigManager.getConfig().getDouble(JellyMethods.configPath("water", "Whip", "Range"));
+		this.damage = ConfigManager.getConfig().getDouble(JellyMethods.configPath("water", "Whip", "Damage"));
 		
 		this.origin = player.getLocation().clone().add(0, 1, 0);
 		this.location = origin.clone();
