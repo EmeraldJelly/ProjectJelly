@@ -42,6 +42,10 @@ public class Scorch extends FireAbility implements AddonAbility {
 		setFields();
 	}
 
+	/*
+	This Does not work properly and should not be touched in any way by any one.
+	 */
+
 	public void setFields() {
 		this.cooldown1 = ConfigManager.getConfig().getLong(JellyMethods.configPath("fire", "Scorch", "Cooldown1"));
 		this.cooldown2 = ConfigManager.getConfig().getLong(JellyMethods.configPath("fire", "Scorch", "Cooldown2"));

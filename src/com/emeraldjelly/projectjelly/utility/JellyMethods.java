@@ -29,6 +29,7 @@ public class JellyMethods {
 		 * Example: Methods.configPath(fire, FireBlast, Cooldown.Cooldown2);
 		 * Then it will create the path like: ProjectJelly.Fire.FireBlast.Cooldown.Cooldown2
 		 */
+
 		String base = "ProjectJelly.";
 		String elementPath = null;
 		String abilityPath = ability + ".";

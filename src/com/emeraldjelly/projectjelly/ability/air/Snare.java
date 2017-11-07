@@ -27,7 +27,6 @@ public class Snare extends AirAbility implements AddonAbility {
 
 	public Snare(Player player) {
 		super(player);
-
 		start();
 		setFields();
 	}
@@ -49,12 +48,12 @@ public class Snare extends AirAbility implements AddonAbility {
 
 	@Override
 	public Location getLocation() {
-		return loc;
+	    return loc;
 	}
 
 	@Override
 	public String getName() {
-		return "Snare";
+	    return "Snare";
 	}
 
 	public String getInstructions() {
